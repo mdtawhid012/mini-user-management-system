@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { User } from "../models/user.model.js";
-import { comparePassword, hashPassword } from "../utils/hash.js";
-import { generateToken } from "../utils/jwt.js";
+import { User } from "../models/user.model.ts";
+import { comparePassword, hashPassword } from "../utils/hash.ts";
+import { generateToken } from "../utils/jwt.ts";
 import type { Request, Response } from "express";
 
 const signupSchema = z.object({
