@@ -3,9 +3,11 @@ import authRouter from "./routes/auth.route.ts";
 import { connectDB } from "./config/db.ts";
 import userRouter from "./routes/user.route.ts";
 import adminRouter from "./routes/admin.route.ts";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
