@@ -4,14 +4,19 @@ import { Toaster } from "sonner";
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import UserProfile from "./pages/UserProfile";
+
+import Navbar from "./components/ui/Navbar";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<UserProfile />} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
       <Toaster />
