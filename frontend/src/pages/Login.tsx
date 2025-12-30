@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Spinner } from "@/components/ui/spinner";
 import { useAuth } from "@/context/AuthContext";
@@ -9,6 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,6 +38,7 @@ const Login = () => {
 
       toast.success("Login successful");
       login(data.user, data.token);
+      navigate("/profile");
     } catch (error) {
       console.error(error);
       if (error instanceof Error) {
