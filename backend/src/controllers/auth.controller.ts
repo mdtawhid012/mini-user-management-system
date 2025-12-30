@@ -88,6 +88,12 @@ export const signin = async (req: Request, res: Response) => {
   return res.status(200).json({
     message: "Login successful",
     token,
+    user: {
+      _id: user._id,
+      fullName: user.fullName,
+      email: user.email,
+      role: user.role,
+    },
   });
 };
 
