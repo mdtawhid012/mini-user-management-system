@@ -29,7 +29,7 @@ const UserProfile = () => {
     e.preventDefault();
     setLoadingUpdate(true);
     try {
-      const response = await fetch("http://localhost:3000/user", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/user`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const UserProfile = () => {
     e.preventDefault();
     setLoadingPassword(true);
     try {
-      const response = await fetch("http://localhost:3000/user/password", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/user/password`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

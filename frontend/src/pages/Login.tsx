@@ -18,7 +18,7 @@ const Login = () => {
       if (!email || !password) {
         throw new Error("All fields are required");
       }
-      const response = await fetch("http://localhost:3000/auth/signin", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();
-      console.log(data);
+
 
       if (!response.ok) {
         if (data.errors) {

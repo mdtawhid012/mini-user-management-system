@@ -10,7 +10,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { Link } from "react-router-dom";
 
 interface User {
   _id: string;
@@ -47,7 +46,7 @@ const AdminDashboard = () => {
   const fetchUsers = async (page = 1) => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/admin?page=${page}&limit=10`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/admin?page=${page}&limit=10`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -74,7 +73,7 @@ const AdminDashboard = () => {
     setActionLoading(confirmDialog.userId);
     try {
       const response = await fetch(
-        `http://localhost:3000/admin/${confirmDialog.userId}/toggle`,
+        `${import.meta.env.VITE_API_URL}/admin/${confirmDialog.userId}/toggle`,
         {
           method: "PUT",
           headers: {
