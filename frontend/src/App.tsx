@@ -23,7 +23,7 @@ function App() {
         <Route path="/admin" element={isAuthenticated ? <AdminDashboard /> : <Navigate to="/login" />} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
-      <Toaster />
+      <Toaster richColors />
     </>
   );
 }

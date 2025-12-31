@@ -10,6 +10,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { Link } from "react-router-dom";
 
 interface User {
   _id: string;
@@ -25,7 +26,7 @@ interface Meta {
 }
 
 const AdminDashboard = () => {
-  const { token } = useAuth();
+  const { user, token } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [meta, setMeta] = useState<Meta>({ page: 1, totalPages: 1 });
   const [loading, setLoading] = useState(false);
@@ -102,6 +103,14 @@ const AdminDashboard = () => {
       userName: user.fullName,
     });
   };
+
+  if (user?.role !== "admin") {
+    return (
+      <div className="flex items-center justify-center h-96">
+        <p className="text-red-600 font-semibold">You do not have permission to access this page.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-8">
