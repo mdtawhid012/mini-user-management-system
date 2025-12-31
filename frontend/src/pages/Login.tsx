@@ -49,8 +49,8 @@ const Login = () => {
     }
   };
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 px-4 py-12">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 md:p-8">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
           Welcome Back
         </h1>
