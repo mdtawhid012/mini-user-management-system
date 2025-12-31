@@ -13,13 +13,14 @@ app.use("/auth", authRouter);
 app.use("/user", userRouter);
 app.use("/admin", adminRouter);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
-const startServer = () => {
-  connectDB();
+connectDB();
+
+if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
     console.log(`Server running on PORT: ${PORT}`);
   });
-};
+}
 
-startServer();
+export default app;
